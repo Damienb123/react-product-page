@@ -6,6 +6,7 @@ import  artwork_2  from "../assets/artwork_2.png";
 import Navbar from './Navbar.jsx'
 import Footer from './footer.jsx'
 import person_1 from "../assets/person-image.png";
+import { Carousel } from "antd";
 
 
 const contentStyle = {
