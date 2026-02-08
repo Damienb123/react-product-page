@@ -6,6 +6,7 @@ import  artwork_1  from "../assets/artwork_1.png";
 import  artwork_2  from "../assets/artwork_2.png";
 import Navbar from './Navbar.jsx'
 import Footer from './footer.jsx'
+import person_1 from "../assets/person-image.png";
 
 
 const contentStyle = {
@@ -38,19 +39,20 @@ function App() {
   <img src={ artwork_1 } />
 
   <div className="child-container-artwork-description-1">
-    <h4>Artwork 2</h4>
+    <h4>Girl With Pearl Earring</h4>
 
     <div className="star-rating-reviews">
-      <FaStar />
-      <FaStar />
-      <FaStar />
-      <FaStar />
-      <FaRegStar />
-      <p>47 reviews</p>
+      <div className="review-stars">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+            </div>
     </div>
 
 
-    <p>$86.00</p>
+    <p id="price-text">$86.00</p>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -58,6 +60,9 @@ function App() {
     </p>
 
     <button className="cart-button">Add to Cart</button>
+    <p className="reviews-link">47 Reviews</p>
+
+
   </div>
 </div>
 
@@ -65,18 +70,19 @@ function App() {
   <img src={ artwork_2 } />
 
   <div className="child-container-artwork-description-2">
-    <h4>Artwork 2</h4>
+    <h4>Embrace</h4>
 
     <div className="star-rating-reviews">
-      <FaStar />
-      <FaStar />
-      <FaStar />
-      <FaStar />
-      <FaRegStar />
-      <p>47 reviews</p>
+     <div className="review-stars">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+            </div>
     </div>
 
-    <p>$86.00</p>
+    <p id="price-text">$126.00</p>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -84,6 +90,10 @@ function App() {
     </p>
 
     <button className="cart-button">Add to Cart</button>
+  <p className="reviews-link">47 Reviews</p>
+
+
+
   </div>
 </div>
 
@@ -145,22 +155,41 @@ function App() {
      </div>
 
      <div className="customer-reviews-parent-container">
-      <h3 id="customer-reviews">What Our Customers Think</h3>
-       <Carousel autoplay>
-    <div>
-      <h3 style={contentStyle}>1</h3>
+      <h3 id="customer-reviews">What Our Customers Say</h3>
+
+      <Carousel autoplay dots>
+        <div className="review-slide">
+          <div className="review-card">
+            <img
+              src={person_1}
+              alt="Stephan Louis"
+              className="review-avatar"
+            />
+
+            <h4 className="review-name">Stephan Louis</h4>
+
+            <div className="review-stars">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+            </div>
+
+            <p className="review-text">
+              “Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo.”
+            </p>
+          </div>
+        </div>
+
+        {/* Add more slides here */}
+      </Carousel>
+
+      <button className="review-button">Write A Review</button>
     </div>
-    <div>
-      <h3 style={contentStyle}>2</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>3</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>4</h3>
-    </div>
-  </Carousel>
-     </div>
       <Footer />
     </>
   )

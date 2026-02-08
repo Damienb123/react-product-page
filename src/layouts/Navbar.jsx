@@ -1,8 +1,10 @@
 import { UseState } from 'react'
 {/* Uses 3 icons from imported from react-icons */}
-import { } from "react-icons/fa"
+import { IoPersonSharp, IoSearch, IoBagOutline } from "react-icons/io5";
+
 {/* global css */}
-import '/app.css'
+import '../App.css'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
@@ -13,21 +15,21 @@ function Navbar() {
                 The Gallery
             </h3>
             <div className="nav-links">
-                <link to="/">
-                    Featured Artwork
-                </link>
-                <link to="/">
-                    Shipping
-                </link>
-                <link to="/">
-                    Reviews
-                </link>
-                <link to="/">
-                    Newsletter
-                </link>
+             <a href="#featured-artwork">Featured Artwork</a>
+             <a href="#shipping-process">Shipping</a>
+             <a href="#customer-reviews">Reviews</a>
+
+            </div>
+
+            <div className="nav-images">
+             <IoSearch />
+             <IoPersonSharp />
+             <IoBagOutline />
             </div>
 
         </div>
         </>
     )
 }
+
+export default Navbar
