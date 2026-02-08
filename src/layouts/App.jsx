@@ -1,5 +1,4 @@
 import React from 'react'
-import { Carousel } from 'antd'
 import { FaStar, FaRegStar, FaTruck, FaShieldAlt, FaSyncAlt, FaBox } from "react-icons/fa";
 import '../App.css'
 import  artwork_1  from "../assets/artwork_1.png";
