@@ -266,10 +266,14 @@
 
 .customer-reviews-parent-container {
   background: #fffaf1;
-  padding: 80px 20px;
+  padding: 80px 0;
   text-align: center;
   min-height: 100vh;
   width: 100%;
+  position: relative;
+  align-items: center;
+  margin-right: 20px;
+
 }
 
 #customer-reviews {
@@ -375,7 +379,7 @@
   background-color: #3f3523;
   color: #ffffff;
   padding: 60px 80px 30px;
-   max-width: 1510px;
+  max-width: 1510px;
 }
 
 .footer-inner {
@@ -452,6 +456,61 @@
 
 .footer-links a {
   cursor: pointer;
+}
+
+
+/* newsletter style elements */
+.newsletter-parent-container {
+  background-color: #3f3523;
+  max-width: 940px;
+  max-height: 900px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 80px 20px;
+  border-radius: 30px;
+  position: relative;
+}
+
+#newsletter-title {
+  font-size: 25px;
+}
+
+.newsletter-interactions {
+  display: flex;
+}
+.email-input input {
+ border-radius: 30px;
+ margin-bottom: 20px;
+ min-height: 100px;
+ max-width: 2400px;
+ min-height: 40px;
+}
+
+.email-input ::placeholder {
+  color: #000000;
+}
+
+.newsletter-text-content {
+  text-align: center;
+  color: #ddd;
+
+}
+
+.sign-up-btn {
+  background: #ff9f5a;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.sign-up-btn:hover {
+    background-color: #ff8a3d;
 }
 
 

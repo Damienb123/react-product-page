@@ -190,6 +190,29 @@ function App() {
 
       <button className="review-button">Write A Review</button>
     </div>
+
+    {/* newsletter implementation goes here */}
+    <div className="newsletter-parent-container">
+      <div className="newsletter-text-content">
+        <h3 id="newsletter-title">
+          Join Our Newsletter
+        </h3>
+        <p id="newsletter-text-content">
+             fugiat nulla pariatur. Excepteur sint occaecat <br/> cupidatat non proident, 
+             sunt in culpa qui officia deserunt <br/> mollit anim id est laborum.
+        </p>
+        <div className="newsletter-interations">
+          <div className="email-input">
+            <input type="email" placeholder="Enter your email" id="newsletter-email-input" pattern=".+@example\.com" size="50" required />
+          </div>
+            <button className="sign-up-btn">Subscribe Now</button>
+            <p id="subscribe-policy-txt">By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.</p>
+        </div>
+
+      </div>
+
+
+    </div>
       <Footer />
     </>
   )
