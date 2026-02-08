@@ -22,6 +22,8 @@ The goal of this project is to strengthen proficiency in:
 - Structuring a clean and scalable React project directory
 - Translating UX designs into a functional UI
 
+## What is my workflow process?
+This project follows a Git-based workflow using feature branches, regular commits, and version control best practices before changes are merged into the main repository on GitHub.
 
 ## Have ideas on how this web page can be further enhanced?
 Have ideas on how this web page could be improved?
