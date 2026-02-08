@@ -28,3 +28,17 @@ Have ideas on how this web page could be improved?
 
 Feel free to submit an **issue** with feature suggestions, UI improvements, or performance ideas.  
 All feedback and contributions are welcome!
+
+## How to Run
+```bash
+### Clone the repository
+git clone https://github.com/your-username/react-artwork-product-page.git
+
+### Navigate into the project directory
+cd react-artwork-product-page
+
+### Install dependencies
+npm install
+
+### Run the Development Server
+npm run dev
