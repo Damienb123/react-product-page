@@ -1,42 +1,62 @@
-import { UseState } from 'react'
-import { } from "react-icons/fa"
-{/* global css */}
-import '/app.css'
+import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
+import "../App.css";
 
-function footer() {
-    return (
-        <>
-        <footer className="footer p-10 bg-slate-40">
-            <div className="footer-title">
-            <h3>
-                The Gallery
-            </h3>
-            </div>
-            
-            <nav>
-                {/* Navigational links */}
-                <h6>Company</h6>
-                <a className="link link-hover">About Us</a>
-                <a className="link link-hover">Our Story</a>
-                <a className="link link-hover">Sustainability</a>
-                <a className="link link-hover">Careers</a>
-            </nav>
-             <nav>
-                {/* Navigational links */}
-                <h6>Support</h6>
-                <a className="link link-hover"> Contact Us</a>
-                <a className="link link-hover">FAQs</a>
-                <a className="link link-hover">Shipping</a>
-                <a className="link link-hover">Returns</a>
-            </nav>
-             <nav>
-                {/* Navigational links */}
-                <h6>Legal</h6>
-                <a className="link link-hover">Privacy Policy</a>
-                <a className="link link-hover">Terms of Service</a>
-                <a className="link link-hover">Cookie Policy</a>
-            </nav>
-        </footer>
-        </>
-    )
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-inner">
+        {/* Brand */}
+        <div className="footer-brand">
+          <h3>The Gallery</h3>
+        </div>
+
+        {/* Company */}
+        <nav>
+          <h6>Company</h6>
+          <a>About Us</a>
+          <a>Our Story</a>
+          <a>Sustainability</a>
+          <a>Careers</a>
+        </nav>
+
+        {/* Support */}
+        <nav>
+          <h6>Support</h6>
+          <a>Contact Us</a>
+          <a>FAQs</a>
+          <a>Shipping</a>
+          <a>Returns</a>
+        </nav>
+
+        {/* Legal */}
+        <nav>
+          <h6>Legal</h6>
+          <a>Privacy Policy</a>
+          <a>Terms of Service</a>
+          <a>Cookie Policy</a>
+        </nav>
+
+        {/* Social Icons */}
+        <div className="footer-social">
+          <span><FaInstagram /></span>
+          <span><FaTwitter /></span>
+          <span><FaFacebookF /></span>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="footer-bottom">
+        <div className="footer-links">
+          <p>Legal</p>
+          <p>Privacy Center</p>
+          <p>Privacy Policy</p>
+          <p>Cookies</p>
+          <p>About Ads</p>
+        </div>
+        <p>© 2026 The Gallery</p>
+      </div>
+    </footer>
+  );
 }
+
+export default Footer;
