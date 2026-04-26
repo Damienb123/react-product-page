@@ -1,3 +1,4 @@
+{/*React imports that use Favicon industry standard images, import images to display as products and review profile image, and importing landing page elements (Navbar/Footer)*/}
 import React from 'react'
 import { FaStar, FaRegStar, FaTruck, FaShieldAlt, FaSyncAlt, FaBox } from "react-icons/fa";
 import '../App.css'
@@ -8,7 +9,7 @@ import Footer from './footer.jsx'
 import person_1 from "../assets/person-image.png";
 import { Carousel } from "antd";
 
-
+{/*reusable content styling*/}
 const contentStyle = {
   margin: 0,
   height: '160px',
@@ -17,7 +18,7 @@ const contentStyle = {
   textAlign: 'center',
   background: '#364d79',
 }
-
+{/*Feature JS functionality for displaying icons and titles*/}
 function Feature({ icon, title, subtitle }) {
   return (
     <div className="feature">
@@ -32,9 +33,11 @@ function App() {
 
   return (
     <>
+      {/*Navbar integration before the landing page contents begins*/}
     <Navbar />
+      {/*Display featured artwork as the CTA for users to buy/preview highlighted artwork pieces*/}
       <h3 className="featured-artwork" id="featured-artwork">Featured Artwork</h3>
-      
+      {/*Each child-container-artwork contains elements of the type of artwork is shown, the title of the piece, ratings that support the quality of the art and pricing*/}      
 <div className="child-container-artwork-1">
   <img src={ artwork_1 } />
 
@@ -98,7 +101,8 @@ function App() {
 </div>
 
 
-
+      {/*The shipping-parent-container is an added section to allow users to understanding the type of shipping process is offered when ordering artwork pieces online*/}
+      {/*Users need information on the types of shipping features offered. As shown: Free shipping on orders over $75, can change if needed, ensured warranty opportunities.*/}
      <div className="shipping-parent-container">
       <h3 id="shipping-process">Shipping Process</h3>
             {/* Top icons */}
@@ -132,7 +136,8 @@ function App() {
         <span>Care Instructions</span>
       </div>
 
-      {/* Content */}
+      {/* The shipping information is the full process the company offers on artwork pieces bought. A full breakdown is described as well as types of shipping */}
+       {/* The standard for the company, is with the opportunity of standard shipping that is delivered within a week or express that supports shortened timelines for delivery.*/}
       <div className="shipping-content">
         <h3>Shipping Information</h3>
         <p>
