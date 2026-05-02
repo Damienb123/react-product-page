@@ -1,7 +1,7 @@
-# React Artwork Product Page (UX-Driven E-commerce UI)
+# React Artwork E-Commerce App
 
 ## Overview
-A single-page artwork shopping web application built with **React** and powered by the **Vite** development server for fast rendering and optimized performance.
+An artwork shopping web application built with **React** and powered by the **Vite** development server for fast rendering and optimized performance.
 
 Prior to development, **UX design best practices** were applied by creating a high-fidelity prototype in **Figma**, ensuring a thoughtful and user-centered layout before implementation.
 
