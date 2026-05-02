@@ -1,24 +1,21 @@
-{/*React imports that use Favicon industry standard images, import images to display as products and review profile image, and importing landing page elements (Navbar/Footer)*/}
-import React from 'react'
-import { FaStar, FaRegStar, FaTruck, FaShieldAlt, FaSyncAlt, FaBox } from "react-icons/fa";
-import '../App.css'
-import  artwork_1  from "../assets/artwork_1.png";
-import  artwork_2  from "../assets/artwork_2.png";
-import Navbar from './Navbar.jsx'
-import Footer from './footer.jsx'
-import person_1 from "../assets/person-image.png";
+import { Routes, Route } from "react-router-dom";
+import {
+  FaBox,
+  FaRegStar,
+  FaShieldAlt,
+  FaStar,
+  FaSyncAlt,
+  FaTruck,
+} from "react-icons/fa";
 import { Carousel } from "antd";
+import "../App.css";
+import Navbar from "./Navbar.jsx";
+import Footer from "./footer.jsx";
+import person_1 from "../assets/person-image.png";
+import CheckoutSummary from "../components/CheckoutSummary.jsx";
+import { artworkProducts } from "../data/artworkProducts.js";
+import { useCheckout } from "../components/useCheckout.js";
 
-{/*reusable content styling*/}
-const contentStyle = {
-  margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-}
-{/*Feature JS functionality for displaying icons and titles*/}
 function Feature({ icon, title, subtitle }) {
   return (
     <div className="feature">
@@ -29,198 +26,186 @@ function Feature({ icon, title, subtitle }) {
   );
 }
 
-function App() {
+function ProductCard({ product }) {
+  const { addItem } = useCheckout();
 
   return (
+    <div className="artwork-product-card">
+      <img className="art-assets" src={product.image} alt={product.title} />
+
+      <div className="artwork-product-description">
+        <h4>{product.title}</h4>
+
+        <div className="star-rating-reviews">
+          <div className="review-stars">
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <FaRegStar />
+          </div>
+        </div>
+
+        <p id="price-text">${product.price.toFixed(2)}</p>
+
+        <p>{product.description}</p>
+
+        <button
+          className="cart-button"
+          type="button"
+          onClick={() => addItem(product)}
+        >
+          Add to Cart
+        </button>
+        <p className="reviews-link">47 Reviews</p>
+      </div>
+    </div>
+  );
+}
+
+function ProductPage() {
+  return (
     <>
-      {/*Navbar integration before the landing page contents begins*/}
-    <Navbar />
-      {/*Display featured artwork as the CTA for users to buy/preview highlighted artwork pieces*/}
-      <h3 className="featured-artwork" id="featured-artwork">Featured Artwork</h3>
-      {/*Each child-container-artwork contains elements of the type of artwork is shown, the title of the piece, ratings that support the quality of the art and pricing*/}      
-<div className="child-container-artwork-1">
-  <img src={ artwork_1 } />
+      <Navbar />
+      <h3 className="featured-artwork" id="featured-artwork">
+        Featured Artwork
+      </h3>
 
-  <div className="child-container-artwork-description-1">
-    <h4>Girl With Pearl Earring</h4>
+      {artworkProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
 
-    <div className="star-rating-reviews">
-      <div className="review-stars">
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
-            </div>
-    </div>
+      <div className="shipping-parent-container">
+        <h3 id="shipping-process">Shipping Process</h3>
+        <div className="shipping-features">
+          <Feature
+            icon={<FaTruck />}
+            title="Free Shipping"
+            subtitle="On orders over $75"
+          />
+          <Feature
+            icon={<FaShieldAlt />}
+            title="2 Year Warranty"
+            subtitle="Full Coverage"
+          />
+          <Feature
+            icon={<FaSyncAlt />}
+            title="Easy Shipping"
+            subtitle="30 day returns"
+          />
+          <Feature
+            icon={<FaBox />}
+            title="Secure Package"
+            subtitle="Care packaging"
+          />
+        </div>
 
+        <div className="shipping-tabs">
+          <span className="active">Shipping</span>
+          <span>Warranty</span>
+          <span>Care Instructions</span>
+        </div>
 
-    <p id="price-text">$86.00</p>
+        <div className="shipping-content">
+          <h3>Shipping Information</h3>
+          <p>
+            We offer free standard shipping on all orders over $75. Orders are
+            typically processed within 1-2 business days and delivered within
+            5-7 business days.
+          </p>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua...
-    </p>
+          <ul>
+            <li>
+              Standard Shipping (5-7 days): Free on orders over $75, otherwise
+              $8.95
+            </li>
+            <li>Express Shipping (2-3 days): $14.95</li>
+            <li>Next Day Delivery: $24.95 (order before 2pm)</li>
+          </ul>
 
-    <button className="cart-button">Add to Cart</button>
-    <p className="reviews-link">47 Reviews</p>
-
-
-  </div>
-</div>
-
-        <div className="child-container-artwork-2">
-  <img src={ artwork_2 } />
-
-  <div className="child-container-artwork-description-2">
-    <h4>Embrace</h4>
-
-    <div className="star-rating-reviews">
-     <div className="review-stars">
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
-            </div>
-    </div>
-
-    <p id="price-text">$126.00</p>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua...
-    </p>
-
-    <button className="cart-button">Add to Cart</button>
-  <p className="reviews-link">47 Reviews</p>
-
-
-
-  </div>
-</div>
-
-
-      {/*The shipping-parent-container is an added section to allow users to understanding the type of shipping process is offered when ordering artwork pieces online*/}
-      {/*Users need information on the types of shipping features offered. As shown: Free shipping on orders over $75, can change if needed, ensured warranty opportunities.*/}
-     <div className="shipping-parent-container">
-      <h3 id="shipping-process">Shipping Process</h3>
-            {/* Top icons */}
-      <div className="shipping-features">
-        <Feature
-          icon={<FaTruck />}
-          title="Free Shipping"
-          subtitle="On orders over $75"
-        />
-        <Feature
-          icon={<FaShieldAlt />}
-          title="2 Year Warranty"
-          subtitle="Full Coverage"
-        />
-        <Feature
-          icon={<FaSyncAlt />}
-          title="Easy Shipping"
-          subtitle="30 day returns"
-        />
-        <Feature
-          icon={<FaBox />}
-          title="Secure Package"
-          subtitle="Care packaging"
-        />
+          <p>
+            International shipping is available to select countries. Rates are
+            calculated at checkout.
+          </p>
+        </div>
       </div>
 
-      {/* Tabs */}
-      <div className="shipping-tabs">
-        <span className="active">Shipping</span>
-        <span>Warranty</span>
-        <span>Care Instructions</span>
-      </div>
+      <div className="customer-reviews-parent-container">
+        <h3 id="customer-reviews">What Our Customers Say</h3>
 
-      {/* The shipping information is the full process the company offers on artwork pieces bought. A full breakdown is described as well as types of shipping */}
-       {/* The standard for the company, is with the opportunity of standard shipping that is delivered within a week or express that supports shortened timelines for delivery.*/}
-      <div className="shipping-content">
-        <h3>Shipping Information</h3>
-        <p>
-          We offer free standard shipping on all orders over $75. Orders are
-          typically processed within 1–2 business days and delivered within
-          5–7 business days.
-        </p>
+        <Carousel autoplay dots>
+          <div className="review-slide">
+            <div className="review-card">
+              <img
+                src={person_1}
+                alt="Stephan Louis"
+                className="review-avatar"
+              />
 
-        <ul>
-          <li>Standard Shipping (5–7 days): Free on orders over $75, otherwise $8.95</li>
-          <li>Express Shipping (2–3 days): $14.95</li>
-          <li>Next Day Delivery: $24.95 (order before 2pm)</li>
-        </ul>
+              <h4 className="review-name">Stephan Louis</h4>
 
-        <p>
-          International shipping is available to select countries. Rates are
-          calculated at checkout.
-        </p>
-      </div>
-     </div>
+              <div className="review-stars">
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaRegStar />
+              </div>
 
-     <div className="customer-reviews-parent-container">
-      <h3 id="customer-reviews">What Our Customers Say</h3>
-
-      <Carousel autoplay dots>
-        <div className="review-slide">
-          <div className="review-card">
-            <img
-              src={person_1}
-              alt="Stephan Louis"
-              className="review-avatar"
-            />
-
-            <h4 className="review-name">Stephan Louis</h4>
-
-            <div className="review-stars">
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
+              <p className="review-text">
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo."
+              </p>
             </div>
+          </div>
+        </Carousel>
 
-            <p className="review-text">
-              “Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo.”
+        <button className="review-button" type="button">
+          Write A Review
+        </button>
+      </div>
+
+      <div className="newsletter-parent-container">
+        <div className="newsletter-text-content">
+          <h3 id="newsletter-title">Join Our Newsletter</h3>
+          <p id="newsletter-text-content">
+            Curated artwork drops, framing ideas, and collection notes sent
+            straight to your inbox.
+          </p>
+          <div className="newsletter-interations">
+            <div className="email-input">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email-input"
+                size="50"
+                required
+              />
+            </div>
+            <button className="sign-up-btn" type="button">
+              Subscribe Now
+            </button>
+            <p id="subscribe-policy-txt">
+              By subscribing, you agree to our Privacy Policy. Unsubscribe
+              anytime.
             </p>
           </div>
         </div>
-
-        {/* Add more slides here */}
-      </Carousel>
-
-      <button className="review-button">Write A Review</button>
-    </div>
-
-    {/* newsletter implementation goes here */}
-    <div className="newsletter-parent-container">
-      <div className="newsletter-text-content">
-        <h3 id="newsletter-title">
-          Join Our Newsletter
-        </h3>
-        <p id="newsletter-text-content">
-             fugiat nulla pariatur. Excepteur sint occaecat <br/> cupidatat non proident, 
-             sunt in culpa qui officia deserunt <br/> mollit anim id est laborum.
-        </p>
-        <div className="newsletter-interations">
-          <div className="email-input">
-            <input type="email" placeholder="Enter your email" id="newsletter-email-input" pattern=".+@example\.com" size="50" required />
-          </div>
-            <button className="sign-up-btn">Subscribe Now</button>
-            <p id="subscribe-policy-txt">By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.</p>
-        </div>
-
       </div>
-
-
-    </div>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<ProductPage />} />
+      <Route path="/checkout" element={<CheckoutSummary />} />
+    </Routes>
+  );
+}
+
+export default App;
